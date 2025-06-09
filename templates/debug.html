@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h1>OAuth Debug Information</h1>
+    <div class="alert alert-warning">
+        This page is for debugging only and should be disabled in production.
+    </div>
+    
+    <div class="card">
+        <div class="card-header">
+            OAuth Configuration
+        </div>
+        <div class="card-body">
+            <p><strong>Client ID:</strong> {{ debug_info.client_id }}</p>
+            <p><strong>Client Secret Preview:</strong> {{ debug_info.client_secret_preview }}</p>
+            <p><strong>Redirect URI:</strong> {{ debug_info.redirect_uri }}</p>
+        </div>
+    </div>
+    
+    <div class="mt-4">
+        <h3>Troubleshooting Steps</h3>
+        <ol>
+            <li>Verify these values match exactly what's in Google Cloud Console</li>
+            <li>Make sure the redirect URI is added to the authorized redirect URIs in Google Cloud Console</li>
+            <li>Check that your Google Cloud project has the necessary APIs enabled</li>
+            <li>Ensure your OAuth consent screen is properly configured</li>
+        </ol>
+    </div>
+</div>
+{% endblock %}

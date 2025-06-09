@@ -1,0 +1,31 @@
+PRAGMA foreign_keys = OFF;
+
+DROP TABLE IF EXISTS images;
+DROP TABLE IF EXISTS users;
+
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT UNIQUE NOT NULL,
+  name TEXT NOT NULL,
+  profile_pic TEXT
+);
+
+CREATE TABLE images (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  filename TEXT NOT NULL,
+  caption TEXT,
+  user_id INTEGER NOT NULL,
+  upload_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+
+
+
+
+
+
+
+
